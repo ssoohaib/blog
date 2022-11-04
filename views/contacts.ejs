@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstraps@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/stylesCon.css" />
+    
+    <title>Contacts</title>
+</head>
+<body>
+    <section class="dark">
+        <div class="container py-4">
+            <h1 class="h1 text-center" id="pageHeaderTitle">Contacts</h1>
+
+            <% for(let i=0;i<rec.length;i++){ %>
+                
+                <article class="postcard dark blue">
+                    <a class="postcard__img_link" href="#">
+                        <img class="postcard__img" src="../uploads/<%= rec[i].image %>" alt="Image Title" >
+                    </a>
+                    <div class="postcard__text">
+                        <h3 class="postcard__title blue"><a href="#"><%= rec[i].email %></a></h3>
+                        <h3 class="postcard__title blue"><a href="#"><%= rec[i].password %></a></h3>
+
+                        <form action="/contacts" method="post">
+                            <button class="btnn" name="btn" value="<%= rec[i].email %>">
+                                <h3>Update</h3>
+                            </button>
+                        </form>
+
+                        <form action="/contacts" method="post">
+                            <button id="btn" class="btnn" type="submit" class="submit" 
+                            value="<%= rec[i].email %>">
+                                <h3>Delete</h3>
+                            </button>
+                        </form>
+                    </div>
+                </article>
+            <% } %>
+
+        </div>
+    </section>
+
+    <footer>
+        <nav class="custom-pager" aria-label="...">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item active" aria-current="page">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+    </footer>
+    
+   
+</body>
+</html>
