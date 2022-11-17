@@ -57,7 +57,7 @@ app.post('/login',function(req,res){
     if(result){
       res.render('dashboard',{user:result[0].email})
     }else{
-      console.log('------------------lol--------------');
+      //console.log('------------------lol--------------');
       document.getElementById('error').innerText="Account Not Found";
     }
     // res.send(result)
